@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/Cart";
-import { FaCartPlus } from "react-icons/fa";
+import { FaCartPlus, FaWpforms } from "react-icons/fa";
 
 import styled from "styled-components";
 
@@ -29,10 +29,15 @@ function Menu() {
         </Link>
       </MenuTitle>
       <div className="">
+        <Link to="/form" className="cart-list-item">
+          Formulário <FaWpforms/>
+        </Link>
+      </div>
+      <div className="">
         <Link to="/cart" className="cart-list-item">
           {cart.length} <FaCartPlus size="20px" />
         </Link>
-      </div>
+      </div>      
     </MenuStyle>
   );
 }
