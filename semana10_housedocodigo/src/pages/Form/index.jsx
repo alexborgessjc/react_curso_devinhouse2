@@ -4,6 +4,8 @@ import Input from '../../components/Input';
 import Textarea from '../../components/Textarea';
 import Select from '../../components/Select';
 import Container from '../../components/Container';
+import Radio from '../../components/Radio';
+import Checkbox from '../../components/Checkbox';
 
 import {FormDefault} from './styles';
 
@@ -14,6 +16,8 @@ function Form() {
   const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState({});
+  const [campoSexo, setCamposexo] = useState('')
+  const [aceitaTermodeUso, setAceitaTermodeUso] = useState(false)
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -30,7 +34,11 @@ function Form() {
 
     if (!email) {
         currentErrors.email = 'E-mail é obrigatório';
-      }
+    }
+
+    if (!campoSexo) {
+      currentErrors.campoSexo = 'Selecionar é obrigatório';
+  }
     
     // Yup
 
@@ -74,6 +82,21 @@ function Form() {
           errorMessage={errors.email}
         />
 
+        <Checkbox
+          checked={aceitaTermodeUso}
+          onChange={(event) => setAceitaTermodeUso(event.target.checked)}
+          label="Aceita o termo de uso"
+          value={aceitaTermodeUso}
+        />
+
+        <Radio
+          name="foodRadio"
+          onChange={(event) => setCamposexo(event.target.value)}
+          options={['Male', 'Female']}
+          errorMessage={errors.campoSexo}
+        />
+
+
         <Select
             label="Team Size ?"
             value={color}
@@ -95,9 +118,7 @@ function Form() {
                 }
                 ]
             }
-        />
-
-        {color}
+        />      
         
 
         <button type="submit">Salvar</button>
