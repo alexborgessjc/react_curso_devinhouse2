@@ -6,6 +6,7 @@ import Select from '../../components/Select';
 import Container from '../../components/Container';
 import Radio from '../../components/Radio';
 import Checkbox from '../../components/Checkbox';
+import BotaoSwitch from '../../components/Switch';
 
 import {FormDefault} from './styles';
 
@@ -18,10 +19,10 @@ function Form() {
   const [errors, setErrors] = useState({});
   const [campoSexo, setCamposexo] = useState('')
   const [aceitaTermodeUso, setAceitaTermodeUso] = useState(false)
-
+  
   function handleSubmit(event) {
     event.preventDefault();
-
+    
     let currentErrors = {};
 
     if (!comentario) {
@@ -96,6 +97,9 @@ function Form() {
           errorMessage={errors.campoSexo}
         />
 
+        <BotaoSwitch
+          label="Botao Switch"          
+        />
 
         <Select
             label="Team Size ?"
