@@ -9,7 +9,7 @@ const MenuStyle = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0A1A6F;
+  background-color: blue;
   color: #fff;
   font-weight: bold;
   padding: 20px;

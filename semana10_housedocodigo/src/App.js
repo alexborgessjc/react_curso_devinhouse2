@@ -1,6 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { CartProvider } from "./contexts/Cart";
+import GlobalStyles from "./components/Styles/global";
 
 import Home from "./pages/Home";
 import Details from "./pages/Details";
@@ -17,18 +18,21 @@ function App() {
 
   return (
     <>
-      <CartProvider>
-        <DetailsProvider>
-          <Menu />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/details/" element={<Details />} />
-            <Route path="/form" element={<Form />} />
-          </Routes>
-          <Footer />
-        </DetailsProvider>
-      </CartProvider>
+      
+        <CartProvider>
+          <DetailsProvider>            
+            <Menu />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/details/" element={<Details />} />
+              <Route path="/form" element={<Form />} />
+            </Routes>
+            <GlobalStyles/>
+            <Footer />
+          </DetailsProvider>
+        </CartProvider>
+        
     </>
   );
 }
